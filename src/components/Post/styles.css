@@ -56,6 +56,10 @@ a{
     align-items: center;
 }
 
+.post__question>p:hover{
+    text-decoration: underline;
+}
+
 .post__question>.post__button{
     outline: none;
     border: none;
