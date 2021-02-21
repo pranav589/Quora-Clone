@@ -252,7 +252,7 @@ function QuestionDetail() {
 
               <div className="modal__editor">
                 <Editor
-                  apiKey="qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc"
+                  apiKey="tsjggcqd1749ircqxch1gaaje751c4y3e1aieoahhn90bn7l"
                   name="message"
                   initialValue=""
                   init={{
