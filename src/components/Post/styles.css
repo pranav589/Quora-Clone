@@ -1,0 +1,137 @@
+.post{
+    padding: 10px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.post__info{
+    display: flex;
+    align-items: center;
+}
+
+
+.post__user{
+    padding: 5px;
+}
+
+.post__user >h5{
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 13px;
+}
+.post__user>h5:hover{
+    text-decoration: underline;
+}
+
+.post__user>p{
+    margin-left: 10px;
+}
+
+.post__body{
+    display: flex;
+    flex-direction: column;
+}
+
+.post__body>.post__question{
+    margin-top: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.post__body>.post__question >p:hover{
+    text-decoration: underline;
+}
+
+.post__question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post__question>.post__button{
+    outline: none;
+    border: none;
+    background-color: #a82723;
+    padding: 8px;
+    border-radius: 20px;
+    color: white;
+    font-size:15px;
+}
+
+.post__body>img{
+    object-fit: contain;
+    background-color: grey;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.post__footer{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.post__footer>.MuiSvgIcon-root{
+    color: grey;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.post__footerActions{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: #e2e2e2;
+    border-radius: 30px;
+    align-items: center;
+
+}
+
+.post__footerAction{
+    display: flex;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+
+.post__footerActions>.MuiSvgIcon-root{
+    color: grey;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.post__footerLeft{
+    margin-left: auto;
+}
+
+.post__footerLeft>.MuiSvgIcon-root{
+    color: grey;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+@media(max-width:400px){
+    .post{
+        width: 100%;
+    }
+
+    .post__footerLeft{
+       display: flex;
+       
+    }
+
+    .post__footer{
+        margin-bottom: 0;
+    }
+}

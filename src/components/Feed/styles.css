@@ -1,0 +1,13 @@
+.feed{
+    flex: 0.6;
+
+
+}
+
+@media(max-width:400px){
+    .feed{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+}

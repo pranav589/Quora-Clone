@@ -1,0 +1,27 @@
+.widget{
+    flex: 0.2;
+    margin-left: 20px;
+    padding: 10px;
+    margin-right: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    max-height: 85vh;
+    background-color: white;
+}
+
+.widget__header{
+    border-bottom: 1px solid lightgrey;
+}
+
+.widget__header>h5{
+    padding: 10px;
+    color: rgb(80,80,80);
+    font-size: 15px;
+
+}
+
+@media(max-width:400px){
+    .widget{
+        display: none;
+    }
+}

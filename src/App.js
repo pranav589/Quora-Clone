@@ -1,58 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect } from "react";
+import Quora from "./components/Quora/index";
+import { useSelector, useDispatch } from "react-redux";
+import "./App.css";
+import { logout, selectUser, login } from "./features/userSlice";
+import Login from "./components/auth/Login";
+import { auth } from "./firebase";
+import {Redirect, Route, Switch} from 'react-router-dom'
+import QuestionDetail from "./components/QuestionDetail";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch(
+          login({
+            uid: authUser.uid,
+            photoUrl: authUser.photoURL,
+            displayName: authUser.displayName,
+            email: authUser.email,
+          })
+        );
+        // console.log(authUser)
+      } else {
+        dispatch(logout());
+      }
+    });
+  }, [dispatch]);
+
+  return (<div className="App">
+    <Switch>
+      <Route path='/login'>
+          {!user ?<Login/> :<Redirect to='/' />}
+      </Route>
+      <Route path='/' exact>
+      {user ?<Quora/> :<Redirect to='/login' />}
+      </Route>
+      <Route path='/:Id'>
+        <QuestionDetail/>
+      </Route>
+    </Switch>
+
+    </div>);
 }
 
 export default App;

@@ -1,0 +1,19 @@
+.quora__content{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.quora{
+    background-color: #f1f1f1;
+}
+
+@media(max-width:400px){
+    .quora__content{
+        margin-top: 5px;
+    }
+
+    .quora{
+        overflow-x: hidden;
+    }
+}
